@@ -26,14 +26,14 @@ public class UploadFileService {
         Session session = null;
         ChannelSftp channelSftp = null;
         try {
-            String newDirectory = sftpPathProperty.getPath() + userId;
+            String existingDirectory = sftpPathProperty.getPath() + userId;
 
             //Connect SFTP server and set to variable
             SftpConnectionModel sftpConnection = sftpConnectComponent.connectSftp();
             session = sftpConnection.getSession();
             channelSftp = sftpConnection.getChannel();
 
-            String[] folders = newDirectory.split("/");
+            String[] folders = existingDirectory.split("/");
             for (String folder : folders) {
                 if (!folder.isEmpty()) {
                     try {

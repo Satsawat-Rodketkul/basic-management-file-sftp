@@ -2,7 +2,8 @@ package com.basic.sftp.models;
 
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.Session;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter

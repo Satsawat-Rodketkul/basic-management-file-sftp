@@ -1,7 +1,9 @@
 package com.basic.sftp.controller;
 
 import com.basic.sftp.models.request.CreateDirectoryModel;
+import com.basic.sftp.models.request.DeleteFileOrDirectoryModel;
 import com.basic.sftp.service.CreateDirectoryService;
+import com.basic.sftp.service.DeleteFileOrDirectoryService;
 import com.basic.sftp.service.UploadFileService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ public class sftpManagementController {
 
     private final CreateDirectoryService createDirectoryService;
     private final UploadFileService uploadFileService;
+    private final DeleteFileOrDirectoryService deleteFileOrDirectoryService;
 
     @PostMapping("/create/directory")
     public ResponseEntity<String> createDirectory(@RequestBody CreateDirectoryModel req) {
@@ -27,6 +30,11 @@ public class sftpManagementController {
             @RequestParam("userId") String userId
     ) {
         return uploadFileService.uploadFile(file, userId);
+    }
+
+    @PostMapping("/delete")
+    public ResponseEntity<String> deleteFileOrDirectory(@RequestBody DeleteFileOrDirectoryModel req) {
+        return deleteFileOrDirectoryService.deleteFileOrDirectory(req);
     }
 
 }
