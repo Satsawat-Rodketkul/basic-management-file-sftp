@@ -6,6 +6,7 @@ import com.basic.sftp.service.UploadFileService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/sftp-management/v1")
@@ -21,8 +22,11 @@ public class sftpManagementController {
     }
 
     @PostMapping("/upload/file")
-    public ResponseEntity<String> uploadFile() {
-        return uploadFileService.uploadFile();
+    public ResponseEntity<String> uploadFile(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("userId") String userId
+    ) {
+        return uploadFileService.uploadFile(file, userId);
     }
 
 }
