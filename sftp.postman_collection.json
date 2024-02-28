@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "2bb1cd87-f667-45f0-913e-4f407e7a7ae6",
+		"name": "sftp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "18314473"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/sftp-management/v1/create/directory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/sftp-management/v1/create/directory"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/sftp-management/v1/upload/file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/satsawatrodketkul/Documents/test.txt"
+						},
+						{
+							"key": "userId",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/sftp-management/v1/upload/file"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/sftp-management/v1/delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"123456\",\n    \"type\": \"directory\",\n    \"fileOrDirectoryName\": \"test.txt\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/sftp-management/v1/delete"
+			},
+			"response": []
+		}
+	]
+}
